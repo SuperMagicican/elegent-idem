@@ -1,0 +1,8 @@
+ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+   cn.elegent.idempotence.core.aspect.ElegentIdemAspect,\
+   cn.elegent.idempotence.checker.TokenChecker,\
+   cn.elegent.idempotence.checker.SnChecker,\
+   cn.elegent.idempotence.core.CheckerLoader,\
+   cn.elegent.idempotence.unique.DefaultUniqueID,\
+   cn.elegent.idempotence.controller.TokenController,\
+   cn.elegent.idempotence.exception.DefaultExceptionManager
