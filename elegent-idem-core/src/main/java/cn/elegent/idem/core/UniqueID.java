@@ -1,4 +1,4 @@
-package cn.elegent.idempotence.core;
+package cn.elegent.idem.core;
 
 /**
  * UniqueID

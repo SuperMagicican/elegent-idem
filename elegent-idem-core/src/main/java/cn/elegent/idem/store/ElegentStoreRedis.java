@@ -1,15 +1,10 @@
-package cn.elegent.data.redis;
-
-import cn.elegent.data.ElegentData;
+package cn.elegent.idem.store;
+import cn.elegent.idem.core.ElegentStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-@Component
-@ConditionalOnProperty(prefix = "elegent.data",name = "type",havingValue = "redis",matchIfMissing = true)
-public class ElegentDataRedis implements ElegentData {
+public class ElegentStoreRedis implements ElegentStore {
 
     @Autowired
     private JedisPool jedisPool;

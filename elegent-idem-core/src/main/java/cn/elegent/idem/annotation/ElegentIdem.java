@@ -1,10 +1,10 @@
-package cn.elegent.idempotence.annotation;
+package cn.elegent.idem.annotation;
 
 
 import java.lang.annotation.*;
 
 /**
- * ElegentIdempotent
+ * ElegentIdem
  * @description 自定义接口幂等性注解
  * @author 黑马刘皇叔
  * @date 2022/11/11 9:08

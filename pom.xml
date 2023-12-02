@@ -7,10 +7,9 @@
     <groupId>cn.elegent.idem</groupId>
     <artifactId>elegent-idem</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <modules>
         <module>elegent-idem-core</module>
-        <module>elegent-idem-data</module>
         <module>elegent-idem-demo</module>
     </modules>
 
@@ -18,7 +17,5 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
-
 
 </project>

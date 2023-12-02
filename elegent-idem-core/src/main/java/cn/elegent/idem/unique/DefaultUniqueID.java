@@ -1,5 +1,5 @@
-package cn.elegent.idempotence.unique;
-import cn.elegent.idempotence.core.UniqueID;
+package cn.elegent.idem.unique;
+import cn.elegent.idem.core.UniqueID;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 

@@ -1,7 +1,6 @@
-package cn.elegent.idempotence.core;
+package cn.elegent.idem.core;
 
-import cn.elegent.idempotence.annotation.CheckerName;
-import cn.elegent.idempotence.core.Checker;
+import cn.elegent.idem.annotation.CheckerName;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

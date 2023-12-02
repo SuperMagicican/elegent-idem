@@ -1,4 +1,4 @@
-package cn.elegent.idempotence.annotation;
+package cn.elegent.idem.annotation;
 
 import java.lang.annotation.*;
 

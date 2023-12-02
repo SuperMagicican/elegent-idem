@@ -1,10 +1,10 @@
-package cn.elegent.idempotence.core.aspect;
+package cn.elegent.idem.core.aspect;
 
-import cn.elegent.idempotence.annotation.ElegentIdem;
-import cn.elegent.idempotence.core.Checker;
-import cn.elegent.idempotence.core.CheckerLoader;
-import cn.elegent.idempotence.core.ExceptionManager;
-import cn.elegent.idempotence.core.UniqueID;
+import cn.elegent.idem.annotation.ElegentIdem;
+import cn.elegent.idem.core.Checker;
+import cn.elegent.idem.core.CheckerLoader;
+import cn.elegent.idem.core.ExceptionManager;
+import cn.elegent.idem.core.UniqueID;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,16 +28,15 @@ public class ElegentIdemAspect {
     private ExceptionManager exceptionManager;
 
 
-
     @Autowired
-    private UniqueID uniqueID;
+    private UniqueID uniqueID; //唯一标识获取器
 
     /**
      * 织入点
      */
-    @Pointcut("@annotation(cn.elegent.idempotence.annotation.ElegentIdem)")
-    public void elegentIdem() {
-    }
+//    @Pointcut("@annotation(cn.elegent.idem.annotation.ElegentIdem)")
+//    public void elegentIdem() {
+//    }
 
     /**
      * 接口幂等性操作流程
@@ -46,7 +45,7 @@ public class ElegentIdemAspect {
      * 3) 如果存在则判断状态是否存在如果存在 则拒绝
      * 4)业务逻辑执行完 删除对应的requestId
      */
-    @Around("elegentIdem() && @annotation(elegentIdem)")
+    @Around("@annotation(elegentIdem)")
     public Object methodBefore(ProceedingJoinPoint point , ElegentIdem elegentIdem) {
         //请求id由接口获取，目的是提高拓展性
         String uniqueID = this.uniqueID.getUniqueID(elegentIdem.name());
@@ -63,7 +62,7 @@ public class ElegentIdemAspect {
                 e.printStackTrace();
             }
         }else{
-            exceptionManager.interfaceDempotenceHandler();//重复请求的处理
+            exceptionManager.errorHandler();//重复请求的处理
         }
         return proceed;
     }

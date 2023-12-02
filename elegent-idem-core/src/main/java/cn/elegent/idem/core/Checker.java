@@ -1,5 +1,8 @@
-package cn.elegent.idempotence.core;
+package cn.elegent.idem.core;
 
+/**
+ * 检查器
+ */
 public interface Checker {
 
 

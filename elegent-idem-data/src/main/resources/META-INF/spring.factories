@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   cn.elegent.data.redis.JedisConfig,\
-   cn.elegent.data.redis.ElegentDataRedis

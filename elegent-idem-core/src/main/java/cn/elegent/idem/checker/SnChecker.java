@@ -1,8 +1,7 @@
-package cn.elegent.idempotence.checker;
-
-import cn.elegent.data.ElegentData;
-import cn.elegent.idempotence.annotation.CheckerName;
-import cn.elegent.idempotence.core.Checker;
+package cn.elegent.idem.checker;
+import cn.elegent.idem.annotation.CheckerName;
+import cn.elegent.idem.core.Checker;
+import cn.elegent.idem.core.ElegentStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Component
@@ -10,14 +9,14 @@ import org.springframework.stereotype.Component;
 public class SnChecker implements Checker {
 
     @Autowired
-    private ElegentData elegentData;
+    private ElegentStore elegentStore;
 
 
     public static final String key="elegent_iu_sn_";
 
     @Override
     public boolean check(String uniqueID) {
-        return elegentData.setIfAbsent(key+uniqueID, "-", 60);
+        return elegentStore.setIfAbsent(key+uniqueID, "-", 60);
     }
 
     @Override

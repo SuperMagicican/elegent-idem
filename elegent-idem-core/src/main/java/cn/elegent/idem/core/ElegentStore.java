@@ -1,11 +1,9 @@
-package cn.elegent.data;
-
-import java.util.concurrent.TimeUnit;
+package cn.elegent.idem.core;
 
 /**
  * 数据处理通用接口
  */
-public interface ElegentData {
+public interface ElegentStore {
 
     /**
      * 获取值

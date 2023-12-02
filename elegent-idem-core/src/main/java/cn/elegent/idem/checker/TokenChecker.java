@@ -1,8 +1,7 @@
-package cn.elegent.idempotence.checker;
-
-import cn.elegent.data.ElegentData;
-import cn.elegent.idempotence.annotation.CheckerName;
-import cn.elegent.idempotence.core.Checker;
+package cn.elegent.idem.checker;
+import cn.elegent.idem.annotation.CheckerName;
+import cn.elegent.idem.core.Checker;
+import cn.elegent.idem.core.ElegentStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +12,12 @@ public class TokenChecker implements Checker {
     public static final String key="elegent_iu_token";
 
     @Autowired
-    private ElegentData elegentData;
+    private ElegentStore elegentStore;
 
 
     @Override
     public boolean check(String uniqueID) {
-        Object value = elegentData.hget(TokenChecker.key, uniqueID);
+        Object value = elegentStore.hget(TokenChecker.key, uniqueID);
         if(value==null){  //不能查到
             return false;
         }else{
@@ -28,7 +27,7 @@ public class TokenChecker implements Checker {
 
     @Override
     public void afterSuccess(String uniqueID) {
-        elegentData.hdel(TokenChecker.key,uniqueID);
+        elegentStore.hdel(TokenChecker.key,uniqueID);
     }
 
 }

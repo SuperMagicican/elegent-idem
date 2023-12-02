@@ -1,15 +1,17 @@
-package cn.elegent.idempotence.core.config;
+package cn.elegent.idem.core.config;
 
-import cn.elegent.idempotence.core.ExceptionManager;
-import cn.elegent.idempotence.exception.DefaultExceptionManager;
-import cn.elegent.idempotence.core.UniqueID;
-import cn.elegent.idempotence.unique.DefaultUniqueID;
+import cn.elegent.idem.core.ElegentStore;
+import cn.elegent.idem.core.ExceptionManager;
+import cn.elegent.idem.exception.DefaultExceptionManager;
+import cn.elegent.idem.core.UniqueID;
+import cn.elegent.idem.store.ElegentStoreRedis;
+import cn.elegent.idem.unique.DefaultUniqueID;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class IdempotenceConfg {
+public class IdemConfig {
 
     /**
      * 标识器
@@ -29,6 +31,16 @@ public class IdempotenceConfg {
     @ConditionalOnMissingBean
     public ExceptionManager exceptionManager(){
         return new DefaultExceptionManager();
+    }
+
+    /**
+     * 存储器
+     * @return
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public ElegentStore elegentStore(){
+        return new ElegentStoreRedis();
     }
 
 }

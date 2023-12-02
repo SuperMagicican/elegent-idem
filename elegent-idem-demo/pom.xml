@@ -5,7 +5,7 @@
     <parent>
         <artifactId>elegent-idem</artifactId>
         <groupId>cn.elegent.idem</groupId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>cn.elegent.idem</groupId>
             <artifactId>elegent-idem-core</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
